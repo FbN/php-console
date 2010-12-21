@@ -1,6 +1,8 @@
 PHP Console
 ===========
 
+################# ADDED SYNTAX HIGHLIGHT USING CODEMIRROR ######################
+
 A web console to try your PHP code into
 
 Creating a test file or using php's interactive mode can be a bit cumbersome to try random php snippets. This allows you to run small bits of code easily right from your browser.
