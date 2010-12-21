@@ -70,3 +70,8 @@ textarea {
 .footer a {
     color: #aaa;
 }
+div.CodeMirror-wrapping{
+  margin: 10px 0.4%;
+  padding: 5px 10px;
+  background:#DDD;
+}

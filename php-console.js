@@ -136,7 +136,7 @@
                 $('textarea[name="code"]').keydown(handleKeyPress);
             }
 
-            $('form').submit(handleSubmit);
+            //$('form').submit(handleSubmit);
 
             updateStatusBar();
             refreshKrumoState();

@@ -72,16 +72,27 @@ if (isset($_POST['code'])) {
         <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
         <script type="text/javascript" src="jquery.selections.js"></script>
         <script type="text/javascript" src="php-console.js"></script>
-        <script type="text/javascript">
-            $.console({
+	<script type="text/javascript" src="codemirror/js/codemirror.js"></script>
+        <script type="text/javascript">    	    
+	    editor = null
+	    $.console({
                 tab: <?php echo json_encode($options['tab']) ?>
             });
+	    $(function(){
+	      editor = new CodeMirror.fromTextArea("inputfield", {
+		parserfile: ["../contrib/php/js/tokenizephp.js", "../contrib/php/js/parsephp.js"],
+		path: "codemirror/js/",
+		stylesheet: "codemirror/contrib/php/css/phpcolors.css",
+		content: document.getElementById("inputfield").value	      
+	      });
+	    //editor.grabKeys(function(e){allert(e)});
+	    });	    
         </script>
     </head>
     <body>
         <div class="output"><?php echo $debugOutput ?></div>
         <form method="POST" action="">
-            <textarea cols="100" rows="20" name="code"><?php echo (isset($_POST['code']) ? htmlentities($_POST['code'], ENT_QUOTES, 'UTF-8') : null) ?></textarea>
+            <textarea  id="inputfield" cols="100" rows="20" name="code"><?php echo (isset($_POST['code']) ? htmlentities($_POST['code'], ENT_QUOTES, 'UTF-8') : null) ?></textarea>
             <div class="statusbar">Line: 1, Column: 1</div>
             <input type="submit" name="subm" value="Try this!" />
         </form>
